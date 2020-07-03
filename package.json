@@ -1,0 +1,23 @@
+{
+  "name": "new-typeorm-project",
+  "version": "0.0.1",
+  "description": "Awesome project developed with TypeORM.",
+  "devDependencies": {
+    "ts-node": "3.3.0",
+    "@types/node": "^8.0.29",
+    "typescript": "3.3.3333"
+  },
+  "dependencies": {
+    "mysql": "^2.14.1",
+    "pg": "^8.2.1",
+    "reflect-metadata": "^0.1.10",
+    "typeorm": "0.2.25"
+  },
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "generate-initial-migration": "npx ts-node ./node_modules/.bin/typeorm migration:generate -n Init",
+    "apply-migration": "npx ts-node ./node_modules/.bin/typeorm migration:run",
+    "generate-secondary-migration": "npx ts-node ./node_modules/.bin/typeorm migration:generate -n Secondary",
+    "reproduce": "npm run generate-initial-migration && npm run apply-migration && npm run generate-secondary-migration && npm run apply-migration"
+  }
+}
